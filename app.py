@@ -168,7 +168,7 @@ def get_history():
     return jsonify({'history': conversation_history})
 
 if __name__ == '__main__':
-    print("🤖 Starting AI Chatbot Server...")
+    print(" Starting AI Chatbot Server...")
     if USE_GROQ and GROQ_API_KEY != 'your-groq-api-key-here':
         print("✅ Groq API Mode: Enabled")
     else:
