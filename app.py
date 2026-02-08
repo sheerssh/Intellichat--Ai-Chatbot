@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Option 1: Groq API (Fast and Free) - Get key from https://console.groq.com
-GROQ_API_KEY = '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'
+GROQ_API_KEY = 'your-groq-api-key-here'  # Replace with your actual Groq API key
 USE_GROQ = True  # Set to True to use Groq, False for offline mode
 
 # Store conversation history
@@ -23,8 +23,11 @@ def query_groq(message):
     }
     
     # Build conversation context - only include user and assistant messages
-    messages = [{"role": "system", "content": "You are a helpful AI assistant. Be friendly and concise."}]
-    
+    messages = [{
+    "role": "system",
+    "content": "You are IntelliChat, a helpful AI assistant. Always answer in short, clear bullet points or small paragraphs. Avoid long paragraphs. Keep responses simple."
+}]
+
     # Add recent conversation history (exclude current message as it will be added)
     recent_history = [msg for msg in conversation_history[-6:] if msg['role'] in ['user', 'assistant']]
     for msg in recent_history:
